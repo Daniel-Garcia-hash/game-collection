@@ -2,6 +2,24 @@ import "./App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import GameCard from "./components/GameCard";
+import { useState } from "react";
+
+const [search, setSearch] = useState("");
+
+<input
+
+    className="search-input"
+
+    type="text"
+
+    placeholder="Zoek een game..."
+
+    value={search}
+
+    onChange={(e) => setSearch(e.target.value)}
+
+/>
+
 
 function App() { 
     const games = [
@@ -28,8 +46,25 @@ function App() {
         id: 4,
         title: "Lobotomy Corporation",
         platform: "PC"
-    }
+    },
 
+    {
+    id: 5,
+    title: "The Legend of Zelda",
+    platform: "Nintendo Switch"
+    },
+
+    {
+    id: 6,
+    title: "Fortnite",
+    platform: "PC"
+    },
+
+    {
+    id: 7,
+    title: "EA Sports FC 26",
+    platform: "PlayStation 5"
+    }
 ];
  return ( 
 <div className="container">
@@ -38,19 +73,28 @@ function App() {
 
     <div className="games">
 
-{games.map((game) => (
+{games
+
+.filter((game) =>
+
+    game.title.toLowerCase().includes(search.toLowerCase())
+
+)
+
+.map((game) => (
 
     <GameCard
 
-            key={game.id}
+        key={game.id}
 
-            title={game.title}
+        title={game.title}
 
-            platform={game.platform}
+        platform={game.platform}
 
-        />
+    />
 
-    ))}
+))}
+
         <p>Naam: Daniel Garcia</p>
 
         <p>Studentnummer: 2196889</p>
