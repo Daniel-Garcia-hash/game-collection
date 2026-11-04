@@ -26,16 +26,19 @@ function App() {
             game.title.toLowerCase().includes(search.toLowerCase())
           )
           .map((game) => (
-<GameCard
-    key={game.id}
-    title={game.title}
-    platform={game.platform}
-    genre={game.genre}
-    rating={game.rating}
-    year={game.year}
-    />
+            <GameCard
+              key={game.id}
+              title={game.title}
+              platform={game.platform}
+              genre={game.genre}
+              rating={game.rating}
+              year={game.year}
+              image={game.image}
+            />
           ))}
+      </div>
 
+      <div className="student-info">
         <p>Naam: Daniel Garcia</p>
         <p>Studentnummer: 2196889</p>
         <p>Klas: 25A</p>

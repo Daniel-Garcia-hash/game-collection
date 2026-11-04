@@ -1,15 +1,20 @@
 import { useState } from "react";
 
-function GameCard(props) {
+function GameCard({ image, title, platform, genre, rating, year }) {
   const [favorite, setFavorite] = useState(false);
 
   return (
     <div className="game-card">
-      <h2>{props.title}</h2>
-      <p>Platform: {props.platform}</p>
-      <p>Genre: {props.genre}</p>
-      <p>Rating: ⭐ {props.rating}</p>
-      <p>Jaar: {props.year}</p>
+      <img
+        src={`/images/${image}`}
+        alt={title}
+        className="game-image"
+      />
+      <h2>{title}</h2>
+      <p>Platform: {platform}</p>
+      <p>Genre: {genre}</p>
+      <p>Rating: ⭐ {rating}</p>
+      <p>Jaar: {year}</p>
 
       <button
         className="favorite-button"
@@ -21,4 +26,4 @@ function GameCard(props) {
   );
 }
 
-export default GameCard;
+export default GameCard;    
