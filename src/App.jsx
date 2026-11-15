@@ -23,7 +23,10 @@ function App() {
       <div className="games">
         {games
           .filter((game) =>
-            game.title.toLowerCase().includes(search.toLowerCase())
+            game.title.toLowerCase().includes(search.toLowerCase()) ||
+            game.genre.toLowerCase().includes(search.toLowerCase()) ||
+            game.developer.toLowerCase().includes(search.toLowerCase()) ||
+            game.platform.toLowerCase().includes(search.toLowerCase())
           )
           .map((game) => (
             <GameCard
